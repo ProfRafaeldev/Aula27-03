@@ -79,3 +79,172 @@ Quando temos muitas opções para testar, a estrutura escolha é mais organizada
 >Dica: Se você quiser testar textos (cadeia) em vez de números, lembre-se de usar aspas duplas: caso "Brasil":.
 
 ### Exemplo de Código: Menu de Países
+
+```portugol
+programa {
+  funcao inicio() {
+    inteiro pais
+
+    escreva("Escolha um país (1 para Brasil, 2 para EUA): ")
+    leia(pais)
+
+    escolha (pais) {
+      caso 1:
+        escreva("Brasil")
+        pare // Interrompe a leitura após encontrar o caso
+
+      caso 2:
+        escreva("EUA")
+        pare
+      
+      caso contrario:
+        escreva("Digite um valor válido!")
+    }
+  }
+}
+```
+
+## Aula 4: Estruturas de Repetição (para, enquanto, faca-enquanto)
+
+Os laços de repetição (loops) servem para executar um bloco de código várias vezes sem precisar reescrevê-lo.
+
+> Nota de Sintaxe: O comando escreva("\n") serve para pular uma linha no console de saída.
+
+### 1. O Laço 'para'
+
+Ideal para quando sabemos exatamente quantas vezes o código deve rodar.
+Estrutura: 'para( início ; condição ; incremento )x'
+
+```portugol
+programa {
+  funcao inicio() {
+    inteiro contador
+
+    para (contador = 1; contador <= 10; contador++) {
+      escreva(contador, "\n")
+    }
+  }
+}
+```
+
+### 2. O Laço 'enquanto'
+
+Ideal para quando o código deve rodar enquanto uma condição for verdadeira. O teste da condição é feito no início.
+
+```portugol
+programa {
+  funcao inicio() {
+    inteiro contador = 1
+
+    enquanto (contador <= 9) {
+      escreva(contador, "\n")
+      contador++ // Incrementa +1 ao contador
+    }
+  }
+}
+```
+
+### 3. O Laço 'faca...enquanto'
+
+Semelhante ao enquanto, mas garante que o código seja executado pelo menos uma vez, pois o teste é feito no final.
+
+```portugol
+programa {
+  funcao inicio() {
+    inteiro contador = 1
+
+    faca {
+      escreva(contador, "\n")
+      contador++
+    } enquanto (contador <= 8)
+  }
+}
+```
+
+### Desafio Prático: Tabuadas
+
+Podemos juntar o laço para com operações matemáticas para automatizar o cálculo de tabuadas!
+
+```portugol
+programa {
+  funcao inicio() {
+    inteiro contador
+    inteiro tabuadaDeTres = 3
+    inteiro tabuadaDeCinco = 5
+
+    escreva("--- TABUADA DO 3 ---\n")
+    para (contador = 1; contador <= 10; contador++) {
+      escreva(contador * tabuadaDeTres, "\n")
+    }
+
+    escreva("\n--- TABUADA DO 5 ---\n")
+    para (contador = 1; contador <= 10; contador++) {
+      escreva(contador, " x ", tabuadaDeCinco, " = ", contador * tabuadaDeCinco, "\n")
+    }
+  }
+}
+```
+
+## Aula 5: Vetores (Arrays)
+
+Vetores são variáveis que conseguem guardar uma lista ordenada de dados sob um mesmo nome. Para acessar uma gaveta específica do vetor, usamos o seu índice (que sempre começa no 0).
+
+### 1. Manipulando Notas e Textos manualmente
+```portugol
+programa {
+  funcao inicio() {
+    // Vetor do tipo Real (Números decimais) com 4 posições
+    real notas[4]
+    notas[0] = 7.1
+    notas[1] = 8.6
+    notas[2] = 9.9
+    notas[3] = 10.0
+
+    escreva("A nota na última posição é: ", notas[3], "\n\n")
+
+    // Vetor do tipo Cadeia (Texto) com 3 posições lidas por um laço 'para'
+    cadeia paises[3]
+    inteiro contador
+
+    paises[0] = "Brasil"
+    paises[1] = "EUA"
+    paises[2] = "Portugal"
+
+    escreva("Lista de países:\n")
+    para (contador = 0; contador < 3; contador++) {
+      escreva(paises[contador], "\n")
+    }
+  }
+}
+```
+
+### 2. Aplicação Real: Média Aritmética Dinâmica
+
+Aqui o programa pede as notas ao usuário, soma todas elas usando um acumulador dentro do laço para, calcula a média e diz se a turma está aprovada.
+```portugol
+programa {
+  funcao inicio() {
+    real nota[4]
+    real media = 0.0
+    real soma = 0.0
+    inteiro contador
+
+    // Leitura das notas e acumulação da soma
+    para (contador = 0; contador < 4; contador++) {
+      escreva("Digite a nota do aluno ", contador + 1, ": ")
+      leia(nota[contador])
+      soma = nota[contador] + soma
+    }
+
+    media = soma / 4
+    escreva("\nMédia da turma: ", media, "\n")
+
+    // Verificação da média
+    se (media < 7.0) {
+      escreva("Resultado: Turma abaixo da média.\n")
+    } senao {
+      escreva("Resultado: Turma acima da média.\n")
+    }
+  }
+}
+```
