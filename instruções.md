@@ -44,3 +44,30 @@ programa {
     escreva("Seu nome é ", nome, ", sua idade é ", idade, " e sua altura é ", altura)
   }
 }
+```
+
+## Aula 2: Estruturas Condicionais (se e senao)
+
+As estruturas condicionais permitem que o programa tome decisões baseadas em regras lógicas.
+
+### Exemplo de Código: Verificador de Maioridade
+
+```portugol
+programa {
+  funcao inicio() {
+    inteiro idade
+
+    escreva("Idade: ")
+    leia(idade)
+
+    // Se a idade for maior ou igual a 18
+    se (idade >= 18) {
+      escreva("Você é maior de idade.")
+    } 
+    // Caso contrário
+    senao {
+      escreva("Você é menor de idade.")
+    }
+  }
+}
+```
