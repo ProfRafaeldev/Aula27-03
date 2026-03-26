@@ -71,3 +71,11 @@ programa {
   }
 }
 ```
+
+## Aula 3: Seleção Múltipla (escolha e caso)
+
+Quando temos muitas opções para testar, a estrutura escolha é mais organizada do que vários se/senao juntos.
+
+>Dica: Se você quiser testar textos (cadeia) em vez de números, lembre-se de usar aspas duplas: caso "Brasil":.
+
+### Exemplo de Código: Menu de Países
